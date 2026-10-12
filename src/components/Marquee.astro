@@ -1,0 +1,9 @@
+---
+import { MARQUEE } from '../data/site';
+const items = [...MARQUEE, ...MARQUEE];
+---
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {[0, 1].map(() => items.map((t, i) => (<><span class={i % 2 ? 'o' : ''}>{t}</span><span class="s">✦</span></>)))}
+  </div>
+</div>

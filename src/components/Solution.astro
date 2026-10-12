@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+import { BENEFITS } from '../data/site';
+---
+<section id="solution" class="section">
+  <div class="wrap">
+    <SectionHead ghost="Solution" kicker="La solution">
+      Un site qui travaille pour vous, <span class="serif">même quand vous êtes occupé.</span>
+    </SectionHead>
+    <div class="grid md:grid-cols-3 gap-5 lg:gap-7">
+      {BENEFITS.map((b) => (
+        <div class="card reveal p-8">
+          <span class="font-display font-extrabold text-[3.2rem] leading-none text-transparent" style="-webkit-text-stroke:1.5px var(--color-accent-light)">{b.n}</span>
+          <h3 class="mt-5 mb-3 font-extrabold text-[1.2rem]">{b.title}</h3>
+          <p class="text-[var(--color-muted)]">{b.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 text-center reveal"><a class="btn" href="#offres">Voir les offres <span class="arr"><Icon name="arrow" size={20} /></span></a></div>
+  </div>
+</section>

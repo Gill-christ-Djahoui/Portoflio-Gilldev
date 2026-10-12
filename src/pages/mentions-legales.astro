@@ -1,0 +1,17 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SITE, LEGAL } from '../data/site';
+---
+<Legal title="Mentions légales" description="Mentions légales du site gdjahoui.com.">
+  <h2>Éditeur du site</h2>
+  <p>{SITE.name}, {LEGAL.statut.toLowerCase()}, basé à {LEGAL.ville}.<br />Email : <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />Site : {SITE.url}</p>
+  <h2>Directeur de la publication</h2>
+  <p>{SITE.name}.</p>
+  {LEGAL.hebergeur && (<><h2>Hébergement</h2><p>{LEGAL.hebergeur}</p></>)}
+  <h2>Propriété intellectuelle</h2>
+  <p>Les textes, visuels et le design de ce site sont la propriété de {SITE.name}, sauf mention contraire. Toute reproduction sans autorisation est interdite. Les captures de projets appartiennent à leurs propriétaires respectifs et sont présentées avec leur accord.</p>
+  <h2>Responsabilité</h2>
+  <p>Les informations de ce site sont données à titre indicatif. Les prix « à partir de » ne remplacent pas le devis, qui fixe le prix définitif avant le début du projet.</p>
+  <h2>Contact</h2>
+  <p>Pour toute question : <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+</Legal>

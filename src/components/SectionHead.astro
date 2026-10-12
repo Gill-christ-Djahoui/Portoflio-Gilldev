@@ -1,0 +1,11 @@
+---
+const { ghost, kicker = '', as: Tag = 'h2', id } = Astro.props;
+---
+<div class="sec-head reveal">
+  <div class="relative py-6">
+    <span class="ghost" aria-hidden="true">{ghost}</span>
+    {kicker && <span class="kicker">{kicker}</span>}
+    <Tag class="h2" id={id}><slot /></Tag>
+  </div>
+  <slot name="lead" />
+</div>

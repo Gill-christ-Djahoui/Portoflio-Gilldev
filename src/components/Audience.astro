@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+import { AUDIENCES } from '../data/site';
+---
+<section id="pour-qui" class="section">
+  <div class="wrap">
+    <SectionHead ghost="Pour qui" id="t-pourqui">
+      Vous êtes<span class="serif">...</span> ?
+      <p slot="lead" class="lead">Chaque métier a son problème. Voici comment un bon site le règle.</p>
+    </SectionHead>
+    <div class="grid md:grid-cols-2 gap-5 lg:gap-7">
+      {AUDIENCES.map((a) => (
+        <article id={a.id} class="card reveal p-7 lg:p-9 flex flex-col">
+          <div class="flex items-center gap-4 mb-5">
+            <span class="grid place-items-center w-14 h-14 rounded-2xl bg-[var(--color-accent)]/15 text-[var(--color-accent-light)] border border-[var(--color-accent)]/30"><Icon name={a.icon} size={28} /></span>
+            <h3 class="font-extrabold text-[1.25rem] lg:text-[1.4rem] leading-tight">{a.title}</h3>
+          </div>
+          <ul class="flex flex-wrap gap-2 mb-6">{a.tags.map((t) => <li class="pill">{t}</li>)}</ul>
+          <p class="text-[var(--color-muted)] mb-4"><b class="text-white font-semibold">Le problème. </b>{a.problem}</p>
+          <p class="mb-7"><b class="text-[var(--color-accent-light)] font-semibold">Ce que je fais. </b>{a.solution}</p>
+          <a class="btn sm mt-auto self-start" href={`?activite=${a.activite}#contact`} data-activite={a.activite} data-track="Cest-mon-cas" data-where={a.id}>C'est mon cas <Icon name="arrow" size={18} /></a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

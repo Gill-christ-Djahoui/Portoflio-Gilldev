@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import SectionHead from './SectionHead.astro';
+import { SKILLS, FACTS, SITE } from '../data/site';
+// Dépose ta photo ici : src/assets/profile.jpg (ou .png/.webp). Elle est affichée
+// dans son format d'origine, sans recadrage ni retouche.
+const files = import.meta.glob('/src/assets/profile.{jpg,jpeg,png,webp}', { eager: true }) as Record<string, { default: ImageMetadata }>;
+const photo = Object.values(files)[0]?.default;
+---
+<section id="apropos" class="section">
+  <div class="wrap">
+    <SectionHead ghost="Qui suis-je">QUI SUIS-JE ?</SectionHead>
+    <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-12 lg:gap-16 items-start">
+      <div class="reveal lg:sticky lg:top-28 mx-auto w-full max-w-[420px]">
+        <div class="relative">
+          <div class="absolute -inset-4 rounded-[2rem] bg-[var(--color-accent)]/25 blur-2xl" aria-hidden="true"></div>
+          {photo ? (
+            <Image src={photo} alt="Gill-christ Djahoui, développeur web" class="relative rounded-[1.6rem] border border-white/10 w-full h-auto" widths={[420, 840]} sizes="(min-width:1024px) 420px, 90vw" quality="max" loading="lazy" />
+          ) : (
+            <div class="relative rounded-[1.6rem] border border-white/10 bg-[var(--color-card)] aspect-[4/5] grid place-items-center text-center p-8 text-[var(--color-muted)]">
+              <div><div class="mx-auto mb-4 w-24 h-24 rounded-full bg-[var(--color-accent)]/20 grid place-items-center font-display font-extrabold text-3xl text-[var(--color-accent-light)]">GD</div><p class="text-sm">Photo pro à ajouter<br /><code class="text-xs">src/assets/profile.jpg</code></p></div>
+            </div>
+          )}
+        </div>
+        <p class="mt-6 text-center font-script text-[2.4rem] leading-none text-[var(--color-accent-light)] -rotate-2">Gill-christ</p>
+      </div>
+
+      <div class="reveal">
+        <p class="text-[1.15rem]">Je m'appelle <b class="text-white">Gill-christ Djahoui</b>. Je suis développeur web.</p>
+        <p class="mt-4 text-[var(--color-muted)]">Depuis 3 ans, je crée des sites pour des commerces, des artisans, des marques et des entreprises. Plus de {SITE.sitesDelivered.replace('+', '')} sites livrés, en France, ailleurs en Europe et même en Afrique.</p>
+        <p class="mt-4 text-[var(--color-muted)]">Ma conviction est simple : <b class="text-white">un site n'est pas une carte de visite.</b> C'est un outil qui doit vous ramener des clients. Sinon, il ne sert à rien.</p>
+        <p class="mt-4 mb-6 text-[var(--color-muted)]">Ce qui fait la différence : je réunis des compétences qu'on trouve rarement chez une seule personne.</p>
+        <ul class="grid sm:grid-cols-2 gap-4">
+          {SKILLS.map((s) => (
+            <li class="card p-5"><b class="block text-[var(--color-accent-light)] font-display font-extrabold mb-1">{s.title}</b><span class="text-[.95rem] text-[var(--color-muted)]">{s.text}</span></li>
+          ))}
+        </ul>
+
+        <h3 class="mt-12 mb-5 font-display font-extrabold uppercase text-[.85rem] tracking-[.2em] text-[var(--color-muted)]">Repères</h3>
+        <ul class="grid sm:grid-cols-2 gap-4">
+          {FACTS.map((f) => (
+            <li class="card p-5"><span class="block font-display font-extrabold text-[1.5rem] leading-tight text-white">{f.big}</span><span class="text-[.9rem] text-[var(--color-muted)]">{f.small}</span></li>
+          ))}
+        </ul>
+
+        <div class="mt-12 card p-7 border-[var(--color-accent)]/30">
+          <h3 class="font-display font-extrabold text-[1.2rem] mb-3">Travailler avec moi</h3>
+          <p class="text-[var(--color-muted)]">Je travaille depuis Cotonou, à distance, comme beaucoup de développeurs aujourd'hui. Pour vous, ça veut dire : un seul interlocuteur qui répond vite, des prix plus doux qu'une agence, et le même niveau d'exigence. Presque pas de décalage horaire : même heure que la France en hiver, une heure de moins en été.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import Audience from '../components/Audience.astro';
+import Problem from '../components/Problem.astro';
+import Solution from '../components/Solution.astro';
+import Offers from '../components/Offers.astro';
+import Included from '../components/Included.astro';
+import Projects from '../components/Projects.astro';
+import Method from '../components/Method.astro';
+import Reviews from '../components/Reviews.astro';
+import About from '../components/About.astro';
+import Promises from '../components/Promises.astro';
+import Faq from '../components/Faq.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { SITE, FAQ, OFFERS } from '../data/site';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'ProfessionalService',
+    name: SITE.name, url: SITE.url, email: SITE.email, image: `${SITE.url}/og-image.png`,
+    description: 'Sites vitrines, refontes et boutiques en ligne pour commerçants, artisans et PME en France, Belgique et Suisse.',
+    address: { '@type': 'PostalAddress', addressLocality: 'Cotonou', addressCountry: 'BJ' },
+    areaServed: ['FR', 'BE', 'CH'], priceRange: '€€', sameAs: [SITE.linkedin], founder: { '@type': 'Person', name: SITE.name },
+    hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Offres', itemListElement: OFFERS.map((o) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: o.title, description: o.hook } })) },
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+---
+<Base
+  title="Création de sites web qui vendent | Gill-christ Djahoui"
+  description="Sites vitrines, refontes et boutiques en ligne pour commerçants, artisans et PME. Beaux sur mobile, visibles sur Google. Devis gratuit sous 24h."
+  ogTitle="Votre site doit vendre. Pas juste exister."
+  ogDescription="Sites web pour commerçants, artisans et PME en France, Belgique et Suisse. Devis gratuit sous 24h."
+  jsonLd={jsonLd}
+>
+  <Header />
+  <main>
+    <Hero />
+    <Marquee />
+    <Audience />
+    <Problem />
+    <Solution />
+    <Offers />
+    <Included />
+    <Projects />
+    <Method />
+    <Reviews />
+    <About />
+    <Promises />
+    <Faq />
+    <Contact />
+  </main>
+  <Footer />
+  <script src="../scripts/main.ts"></script>
+</Base>

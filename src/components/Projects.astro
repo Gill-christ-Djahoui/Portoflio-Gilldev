@@ -1,0 +1,56 @@
+---
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+import Shot from './Shot.astro';
+import { PROJECTS, DEMOS } from '../data/site';
+const loop = [...PROJECTS, ...PROJECTS, ...PROJECTS, ...PROJECTS];
+---
+<section id="realisations" class="section alt overflow-hidden">
+  <div class="wrap">
+    <SectionHead ghost="Projets">
+      QUELQUES PROJETS <span class="serif">livrés</span>
+      <p slot="lead" class="lead">Des commerces, des marques, des boutiques en ligne. En France, ailleurs en Europe et au Bénin.</p>
+    </SectionHead>
+  </div>
+
+  <div class="auto-row reveal" role="region" aria-label="Défilement des captures de projets" tabindex="0">
+    <div class="auto-track">
+      {[0, 1].map((k) => loop.map((p) => (
+        <div class="w-[280px] sm:w-[400px] shrink-0" aria-hidden={k === 1 ? 'true' : undefined}>
+          <div class="frame-pc"><div class="bar"><i></i><i></i><i></i></div><div class="scr"><Shot image={p.image} label={p.name} /></div></div>
+        </div>
+      )))}
+    </div>
+  </div>
+
+  <div class="wrap mt-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
+      {PROJECTS.map((p) => (
+        <article class="card reveal overflow-hidden flex flex-col">
+          <div class="p-4 pb-0"><div class="frame-pc"><div class="bar"><i></i><i></i><i></i></div><div class="scr"><Shot image={p.image} label={p.name} /></div></div></div>
+          <div class="p-7 flex flex-col flex-1">
+            <span class="pill self-start mb-4">{p.tag}</span>
+            <h3 class="font-display font-extrabold text-[1.3rem] mb-2">{p.name}</h3>
+            <p class="text-[var(--color-muted)] text-[.97rem]">{p.did}</p>
+            {p.result && <p class="mt-3 text-[.97rem]"><b class="text-[var(--color-accent-light)]">Résultat : </b>{p.result}</p>}
+            <div class="mt-auto pt-6">
+              {p.url
+                ? <a class="font-semibold text-[var(--color-accent-light)] inline-flex items-center gap-2 hover:gap-3 transition-all" href={p.url} target="_blank" rel="noopener" data-track="Projet" data-where={p.name}>Voir le site <Icon name="arrow" size={18} /></a>
+                : <span class="text-sm text-[var(--color-muted)]">Projet livré, captures sur demande</span>}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="reveal mt-16 card p-8 lg:p-10 text-center">
+      <h3 class="font-display font-extrabold uppercase text-[1.3rem]">Exemples par métier</h3>
+      <p class="mt-2 text-[var(--color-muted)]">Des sites d'exemple pour voir ce que je peux faire pour votre métier.</p>
+      <ul class="mt-6 flex flex-wrap justify-center gap-3">
+        {DEMOS.map((d) => (
+          <li><a class="btn ghost-btn sm" href={d.url} target="_blank" rel="noopener" data-track="Demo" data-where={d.label}>{d.label} <span class="text-[.7rem] font-semibold opacity-70 border border-white/25 rounded-full px-2 py-1">Démo — entreprise fictive</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

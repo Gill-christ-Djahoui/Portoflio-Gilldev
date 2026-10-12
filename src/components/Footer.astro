@@ -1,0 +1,32 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { SITE, NAV, OFFERS, whatsappUrl } from '../data/site';
+---
+<footer class="border-t border-white/10 bg-[var(--color-bg)] pt-16 pb-8">
+  <div class="wrap">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
+      <div>
+        <a href="#accueil" aria-label="Retour en haut"><Logo /></a>
+        <p class="mt-5 text-[.95rem] text-[var(--color-muted)] max-w-[300px]">Gill-christ Djahoui — Développeur web. Sites vitrines, refontes et boutiques en ligne pour commerçants, artisans et PME.</p>
+      </div>
+      <nav aria-label="Navigation du pied de page"><h4 class="font-display font-extrabold text-[.8rem] uppercase tracking-[.18em] mb-4">Navigation</h4>
+        <ul class="grid gap-2.5 text-[var(--color-muted)] text-[.95rem]">{[...NAV, { label: 'Contact', href: '#contact' }].map((l) => <li><a class="hover:text-white" href={l.href}>{l.label}</a></li>)}</ul></nav>
+      <div><h4 class="font-display font-extrabold text-[.8rem] uppercase tracking-[.18em] mb-4">Offres</h4>
+        <ul class="grid gap-2.5 text-[var(--color-muted)] text-[.95rem]">{OFFERS.map((o) => <li><a class="hover:text-white" href={`#offre-${o.id}`}>{o.title}</a></li>)}</ul></div>
+      <div><h4 class="font-display font-extrabold text-[.8rem] uppercase tracking-[.18em] mb-4">Contact</h4>
+        <ul class="grid gap-2.5 text-[var(--color-muted)] text-[.95rem]">
+          <li><a class="hover:text-white break-all" href={`mailto:${SITE.email}`} data-track="Email" data-where="footer">{SITE.email}</a></li>
+          <li><a class="hover:text-white" href={whatsappUrl()} target="_blank" rel="noopener" data-track="WhatsApp" data-where="footer">WhatsApp</a></li>
+          <li><a class="hover:text-white" href={SITE.linkedin} target="_blank" rel="noopener" data-track="LinkedIn" data-where="footer">LinkedIn</a></li>
+        </ul></div>
+      <div><h4 class="font-display font-extrabold text-[.8rem] uppercase tracking-[.18em] mb-4">Légal</h4>
+        <ul class="grid gap-2.5 text-[var(--color-muted)] text-[.95rem]">
+          <li><a class="hover:text-white" href="/mentions-legales">Mentions légales</a></li>
+          <li><a class="hover:text-white" href="/confidentialite">Confidentialité</a></li>
+          <li><a class="hover:text-white" href="/cookies">Cookies</a></li>
+        </ul></div>
+    </div>
+    <p class="mt-14 pt-6 border-t border-white/10 text-center text-sm text-[var(--color-muted)]">© 2026 Gill-christ Djahoui. Tous droits réservés.</p>
+  </div>
+</footer>

@@ -1,0 +1,12 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SITE } from '../data/site';
+---
+<Legal title="Cookies" description="Politique de cookies de gdjahoui.com.">
+  <h2>Ce site ne dépose aucun cookie de suivi</h2>
+  <p>La mesure d'audience est assurée par Plausible Analytics, qui fonctionne sans cookie et sans collecter de données personnelles. C'est pour cela que vous ne voyez pas de bandeau cookies sur ce site.</p>
+  <h2>Services tiers</h2>
+  <p>Les polices (Google Fonts) sont chargées depuis les serveurs de Google. Les liens vers Calendly et WhatsApp ouvrent des services tiers soumis à leurs propres règles.</p>
+  <h2>Une question ?</h2>
+  <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+</Legal>

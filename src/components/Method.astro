@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+import { STEPS, SITE } from '../data/site';
+---
+<section id="methode" class="section">
+  <div class="wrap">
+    <SectionHead ghost="Méthode">
+      COMMENT ÇA SE PASSE :
+      <p slot="lead" class="lead">Simple, rapide, et tout est écrit à l'avance. Aucune surprise.</p>
+    </SectionHead>
+    <ol class="steps">
+      {STEPS.map((s, i) => (
+        <li class="step reveal">
+          <span class="num">{i + 1}</span>
+          <h3 class="font-extrabold text-[1.15rem] mb-2">{s.title}</h3>
+          <p class="text-[var(--color-muted)]">{s.text}</p>
+        </li>
+      ))}
+    </ol>
+    <p class="reveal mt-14 text-center text-[var(--color-muted)]">Tout se fait à distance : appel, WhatsApp, email. Vous n'avez pas à vous déplacer.</p>
+    <div class="reveal mt-8 text-center"><a class="btn" href={SITE.calendly} target="_blank" rel="noopener" data-track="Calendly" data-where="methode"><Icon name="calendar" size={20} /> Réserver mon appel gratuit</a></div>
+  </div>
+</section>

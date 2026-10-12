@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+import { INCLUDED } from '../data/site';
+---
+<section id="inclus" class="section">
+  <div class="wrap">
+    <SectionHead ghost="Inclus">CE QUE VOUS AVEZ <span class="serif">en plus :</span></SectionHead>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-6 gap-5">
+      {INCLUDED.map((x, i) => (
+        <div class={`card reveal p-7 ${i >= 3 ? 'lg:col-span-3' : 'lg:col-span-2'}`}>
+          <span class="grid place-items-center w-12 h-12 rounded-xl bg-[var(--color-accent)]/15 text-[var(--color-accent-light)] mb-5"><Icon name={x.icon} size={24} /></span>
+          <h3 class="font-extrabold text-[1.1rem] mb-2">{x.title}</h3>
+          <p class="text-[var(--color-muted)] text-[.97rem]">{x.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 text-center reveal"><a class="btn" href="#contact" data-track="Devis" data-where="inclus">Demander mon devis gratuit <span class="arr"><Icon name="arrow" size={20} /></span></a></div>
+  </div>
+</section>

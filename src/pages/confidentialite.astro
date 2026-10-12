@@ -1,0 +1,18 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SITE } from '../data/site';
+---
+<Legal title="Politique de confidentialité" description="Comment vos données sont utilisées sur gdjahoui.com.">
+  <h2>Données collectées</h2>
+  <p>Quand vous remplissez le formulaire de devis, je reçois : votre prénom, le nom de votre entreprise, votre email, votre téléphone (facultatif), votre activité, votre besoin et votre message.</p>
+  <h2>Pourquoi</h2>
+  <p>Uniquement pour répondre à votre demande et vous envoyer un devis. Vos informations ne sont ni vendues, ni cédées, ni utilisées pour de la publicité.</p>
+  <h2>Qui y a accès</h2>
+  <p>Moi seul. Le formulaire est transmis par le service Web3Forms, qui achemine le message vers ma boîte email.</p>
+  <h2>Durée de conservation</h2>
+  <p>Vos données sont conservées le temps nécessaire à la relation commerciale, puis supprimées au plus tard 3 ans après notre dernier contact.</p>
+  <h2>Statistiques de visite</h2>
+  <p>Ce site utilise Plausible Analytics, un outil de mesure d'audience respectueux de la vie privée : aucun cookie, aucune donnée personnelle, aucun suivi entre sites.</p>
+  <h2>Vos droits</h2>
+  <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données à tout moment en écrivant à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+</Legal>

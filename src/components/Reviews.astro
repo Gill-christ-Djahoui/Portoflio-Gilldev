@@ -1,0 +1,35 @@
+---
+import SectionHead from './SectionHead.astro';
+import Icon from './Icon.astro';
+import { REVIEWS } from '../data/site';
+const loop = REVIEWS.length ? [...REVIEWS, ...REVIEWS, ...REVIEWS] : [];
+---
+<section id="avis" class="section alt overflow-hidden">
+  <div class="wrap">
+    <SectionHead ghost="Avis">
+      ILS M'ONT FAIT <span class="serif">confiance</span>
+      <p slot="lead" class="lead">Ce que mes clients disent, une fois leur site en ligne.</p>
+    </SectionHead>
+  </div>
+  {REVIEWS.length ? (
+    <div class="auto-row reveal">
+      <div class="auto-track" style="animation-duration:80s">
+        {[0, 1].map(() => loop.map((r) => (
+          <figure class="card w-[300px] sm:w-[380px] shrink-0 p-7">
+            <div class="text-[var(--color-star)] tracking-[.2em] text-lg" aria-label="5 étoiles sur 5">★★★★★</div>
+            <blockquote class="mt-4 text-[.98rem]">« {r.text} »</blockquote>
+            <figcaption class="mt-5 text-sm text-[var(--color-muted)]"><b class="text-white">{r.name}</b> · {r.job} · {r.place}</figcaption>
+          </figure>
+        )))}
+      </div>
+    </div>
+  ) : (
+    <div class="wrap max-w-[720px]">
+      <div class="card reveal p-9 text-center">
+        <div class="text-[var(--color-star)] tracking-[.2em] text-xl opacity-60" aria-hidden="true">★★★★★</div>
+        <p class="mt-4 font-semibold">Les premiers avis clients arrivent bientôt.</p>
+        <p class="mt-2 text-[var(--color-muted)]">Je ne publie que de vrais témoignages. En attendant, <a class="text-[var(--color-accent-light)] underline underline-offset-4" href="#realisations">regardez mes projets</a> ou <a class="text-[var(--color-accent-light)] underline underline-offset-4" href="#contact">parlons du vôtre</a>.</p>
+      </div>
+    </div>
+  )}
+</section>

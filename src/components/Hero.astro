@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro';
+import Shot from './Shot.astro';
+import { SITE, PROJECTS } from '../data/site';
+const [p1, p2, p3] = PROJECTS;
+---
+<section id="accueil" class="relative overflow-hidden pt-32 pb-28 lg:pt-40 lg:pb-44 lg:min-h-[100svh] flex items-center">
+  <div class="stars"></div>
+  <div class="halo"></div>
+  <div class="horizon"></div>
+  <div class="wrap relative z-10 w-full">
+    <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-14 lg:gap-8 items-center">
+      <div class="text-center lg:text-left">
+        <span class="inline-block mb-6 px-4 py-2 rounded-full border border-[var(--color-accent)]/50 bg-[var(--color-accent)]/10 text-[.7rem] sm:text-[.76rem] font-bold tracking-[.18em] text-[var(--color-accent-light)]">COMMERÇANTS · ARTISANS · INDÉPENDANTS · PME</span>
+        <h1 class="font-display font-extrabold uppercase leading-[1.04] tracking-[-0.015em] text-[clamp(1.9rem,7.6vw,3.5rem)]">
+          Vos clients vous cherchent sur <span class="ul-blue">Google.</span> Donnez-leur <span class="serif text-[1.14em]">envie</span> de vous appeler.
+        </h1>
+        <p class="mt-6 text-[var(--color-muted)] max-w-[34rem] mx-auto lg:mx-0 text-[1.02rem] lg:text-[1.12rem]">
+          Je crée et je refais des sites web qui donnent envie de vous appeler, de réserver ou d'acheter. Beaux sur mobile, visibles sur Google, livrés vite et à prix fixe.
+        </p>
+        <div class="mt-9 flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
+          <a href="#contact" class="btn" data-track="Devis" data-where="hero">Demander mon devis gratuit <span class="arr"><Icon name="arrow" size={20} /></span></a>
+          <a href="#realisations" class="btn ghost-btn">Voir mes réalisations</a>
+        </div>
+        <ul class="mt-9 flex flex-col sm:flex-row flex-wrap gap-x-7 gap-y-2 justify-center lg:justify-start text-[.9rem] text-[var(--color-muted)]">
+          <li class="flex items-center gap-2 justify-center"><span class="text-[var(--color-accent-light)]">✦</span><b class="text-white">{SITE.sitesDelivered}</b> sites livrés</li>
+          <li class="flex items-center gap-2 justify-center"><span class="text-[var(--color-accent-light)]">✦</span>Réponse sous 24h</li>
+          <li class="flex items-center gap-2 justify-center"><span class="text-[var(--color-accent-light)]">✦</span>Prix fixe, annoncé avant de commencer</li>
+        </ul>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-[520px] h-[330px] sm:h-[400px] lg:h-[470px]" aria-hidden="true">
+        <div class="absolute left-0 top-0 w-[78%] float-a">
+          <div class="frame-pc"><div class="bar"><i></i><i></i><i></i></div><div class="scr"><Shot image={p1.image} label={p1.name} eager /></div></div>
+        </div>
+        <div class="absolute right-0 bottom-0 w-[30%] float-b">
+          <div class="frame-ph"><div class="scr"><Shot image={p2.image} label={p2.name} device="ph" eager /></div></div>
+        </div>
+        <div class="absolute left-[8%] bottom-[2%] w-[44%] float-b hidden sm:block">
+          <div class="frame-pc"><div class="bar"><i></i><i></i><i></i></div><div class="scr"><Shot image={p3.image} label={p3.name} eager /></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
