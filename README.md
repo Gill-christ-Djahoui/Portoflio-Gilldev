@@ -25,3 +25,11 @@ Lien par campagne : `gdjahoui.com/?c=tours`. Lien direct vers un métier : `gdja
 
 ## Déploiement
 Envoyer le contenu de `dist/` à la racine de l'hébergement du domaine gdjahoui.com.
+
+## Lancer en local (le plus simple)
+Prérequis : Node.js 22 ou plus récent (https://nodejs.org, version LTS).
+- **Windows** : double-clic sur `LANCER-windows.bat`
+- **Mac / Linux** : double-clic sur `LANCER-mac-linux.command` (ou `./LANCER-mac-linux.command` dans un terminal)
+
+Le premier lancement installe les dépendances, puis le navigateur s'ouvre sur http://localhost:4321.
+Ferme la fenêtre du terminal (ou Ctrl+C) pour arrêter.
