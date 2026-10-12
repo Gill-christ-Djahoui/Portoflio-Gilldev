@@ -6,6 +6,7 @@ const { ghost, kicker = '', as: Tag = 'h2', id } = Astro.props;
     <span class="ghost" aria-hidden="true">{ghost}</span>
     {kicker && <span class="kicker">{kicker}</span>}
     <Tag class="h2" id={id}><slot /></Tag>
+    <span class="h2-line" aria-hidden="true"></span>
   </div>
   <slot name="lead" />
 </div>

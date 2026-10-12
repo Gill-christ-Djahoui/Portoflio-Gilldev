@@ -21,16 +21,16 @@ const art: Record<string, string> = {
           <div class={`relative min-h-[230px] lg:min-h-[420px] grid place-items-center overflow-hidden ${i % 2 ? 'lg:order-2' : ''}`} style="background:radial-gradient(circle at 50% 40%,rgba(47,91,255,.35),#0a0e1c 70%)">
             <div class="stars opacity-50"></div>
             <svg viewBox="0 0 160 120" class="relative w-[62%] max-w-[300px] text-[var(--color-accent-light)] float-a" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={art[o.id]} />
-            <span class="absolute left-5 top-5 font-display font-extrabold text-[3.4rem] leading-none text-transparent" style="-webkit-text-stroke:1px rgba(255,255,255,.22)">0{i + 1}</span>
+            <span class="badge-pill">Offre {i + 1}</span>
           </div>
           <div class="p-7 lg:p-12 flex flex-col">
-            <h3 class="font-display font-extrabold uppercase text-[1.6rem] lg:text-[2rem] leading-tight">{o.title}</h3>
+            <h3 class="font-display font-extrabold uppercase text-[1.6rem] lg:text-[2rem] leading-tight"><span class="ttl-ul">{o.title}</span></h3>
             <p class="serif text-[1.35rem] mt-1">{o.hook}</p>
             <p class="mt-4 text-[var(--color-muted)]"><b class="text-white font-semibold">Pour qui : </b>{o.for}</p>
             <ul class="check mt-6 mb-8">{o.items.map((it) => <li>{it}</li>)}</ul>
             <div class="mt-auto flex flex-col sm:flex-row sm:items-center justify-between gap-5 pt-6 border-t border-white/10">
-              <p class="font-display font-extrabold text-[1.7rem] lg:text-[2rem] leading-none">{o.price}</p>
-              <a class="btn" href={`?besoin=${o.besoin}#contact`} data-besoin={o.besoin} data-track="Offre" data-where={o.id}>{o.cta} <span class="arr"><Icon name="arrow" size={20} /></span></a>
+              <p class="font-display font-extrabold text-[1.6rem] lg:text-[1.75rem] leading-none whitespace-nowrap">{o.price}</p>
+              <a class="btn whitespace-nowrap" href={`?besoin=${o.besoin}#contact`} data-besoin={o.besoin} data-track="Offre" data-where={o.id}>{o.cta} <span class="arr"><Icon name="arrow" size={20} /></span></a>
             </div>
           </div>
         </article>

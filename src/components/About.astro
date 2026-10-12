@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import SectionHead from './SectionHead.astro';
+import Icon from './Icon.astro';
 import { SKILLS, FACTS, SITE } from '../data/site';
 // Dépose ta photo ici : src/assets/profile.jpg (ou .png/.webp). Elle est affichée
 // dans son format d'origine, sans recadrage ni retouche.
@@ -49,5 +50,7 @@ const photo = Object.values(files)[0]?.default;
         </div>
       </div>
     </div>
+
+    <div class="cta-row reveal"><a class="btn" href="#contact" data-track="Devis" data-where="apropos">Parlons de votre projet <span class="arr"><Icon name="arrow" size={20} /></span></a></div>
   </div>
 </section>

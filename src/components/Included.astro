@@ -8,10 +8,15 @@ import { INCLUDED } from '../data/site';
     <SectionHead ghost="Inclus">CE QUE VOUS AVEZ <span class="serif">en plus :</span></SectionHead>
     <div class="grid sm:grid-cols-2 lg:grid-cols-6 gap-5">
       {INCLUDED.map((x, i) => (
-        <div class={`card reveal p-7 ${i >= 3 ? 'lg:col-span-3' : 'lg:col-span-2'}`}>
-          <span class="grid place-items-center w-12 h-12 rounded-xl bg-[var(--color-accent)]/15 text-[var(--color-accent-light)] mb-5"><Icon name={x.icon} size={24} /></span>
-          <h3 class="font-extrabold text-[1.1rem] mb-2">{x.title}</h3>
-          <p class="text-[var(--color-muted)] text-[.97rem]">{x.text}</p>
+        <div class={`card reveal overflow-hidden ${i >= 3 ? 'lg:col-span-3' : 'lg:col-span-2'}`}>
+          <div class="relative h-[130px] grid place-items-center overflow-hidden" style="background:radial-gradient(circle at 50% 40%,rgba(47,91,255,.4),#0a0e1c 75%)">
+            <span class="grid place-items-center w-14 h-14 rounded-full bg-[var(--color-accent)]/15 border border-[var(--color-accent-light)]/40 text-[var(--color-accent-light)]"><Icon name={x.icon} size={28} /></span>
+            <span class="badge-pill !bottom-3">Inclus</span>
+          </div>
+          <div class="p-7 text-center">
+            <h3 class="font-extrabold text-[1.1rem] mb-2"><span class="ttl-ul">{x.title}</span></h3>
+            <p class="text-[var(--color-muted)] text-[.97rem]">{x.text}</p>
+          </div>
         </div>
       ))}
     </div>

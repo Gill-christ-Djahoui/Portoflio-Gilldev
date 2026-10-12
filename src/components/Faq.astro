@@ -5,7 +5,7 @@ import { FAQ } from '../data/site';
 <section id="faq" class="section">
   <div class="wrap max-w-[860px]">
     <SectionHead ghost="FAQ">VOS QUESTIONS, <span class="serif">mes réponses</span></SectionHead>
-    <div class="grid gap-3.5">
+    <div>
       {FAQ.map((f, i) => (
         <details class="faq reveal" open={i === 0}>
           <summary><span>{f.q}</span><span class="pm" aria-hidden="true"></span></summary>

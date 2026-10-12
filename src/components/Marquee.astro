@@ -1,9 +1,11 @@
 ---
 import { MARQUEE } from '../data/site';
-const items = [...MARQUEE, ...MARQUEE];
+const { items: list = MARQUEE } = Astro.props;
+const items = [...list, ...list];
+const rep = items.length % 2 ? [...items, ...items] : items; // longueur paire : l'alternance reste continue
 ---
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    {[0, 1].map(() => items.map((t, i) => (<><span class={i % 2 ? 'o' : ''}>{t}</span><span class="s">✦</span></>)))}
+    {[0, 1].map(() => rep.map((t, i) => (<><span class={i % 2 ? 'o' : ''}>{t}</span><span class="s">✦</span></>)))}
   </div>
 </div>

@@ -37,6 +37,13 @@ export const MARQUEE = [
   'Visible sur Google', 'Parfait sur mobile', 'Maintenance',
 ];
 
+export const MARQUEE_INCLUS = [
+  'Audit offert', 'Mise en ligne de A à Z', 'Prise en main', 'Support 30 jours', 'Site en règle',
+];
+export const MARQUEE_SKILLS = [
+  'Code', 'Design', 'Marketing', 'IA', 'WordPress', 'WooCommerce', 'Visible sur Google',
+];
+
 export const AUDIENCES = [
   {
     id: 'commerces', activite: 'commerce', icon: 'store',
